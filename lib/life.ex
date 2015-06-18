@@ -1,8 +1,7 @@
 defmodule Life do
-  def start do
-    vita = spawn(fn -> loop([]) end)
-    send vita, {:add, "https://api.instagram.com/v1/users/self/media/recent?access_token=1531139.f18ce1e.1353009936304f85921167c58a591475"}
-  	vita
+  def start_link do
+  	vita = spawn(fn -> loop([]) end)
+  	send vita, {:add, "https://api.instagram.com/v1/users/self/media/recent?access_token=1531139.f18ce1e.1353009936304f85921167c58a591475"}
   end
 
   def loop(list_perm) do
@@ -15,19 +14,5 @@ defmodule Life do
       	IO.puts list_perm
       	loop(list_perm ++ list)
   	end
-  end
-end
-
-defmodule Death do
-  def start do
-  	spawn(fn -> loop() end)
-  end
-
-  def loop do
-    receive do
-      {:speak} -> 
-      	IO.puts "Arthur says hi"
-      	loop
-    end
   end
 end
