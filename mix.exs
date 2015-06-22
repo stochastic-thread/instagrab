@@ -1,8 +1,8 @@
-defmodule Life.Mixfile do
+defmodule Instagrab.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :life,
+    [app: :instagrab,
      version: "0.0.1",
      elixir: "~> 1.1-dev",
      build_embedded: Mix.env == :prod,
